@@ -142,7 +142,7 @@ CHINGU
 
 ###2-7-2019
 ALC 4.0
-    Start Angular lessons. But before I go to angular I need to understand how to setup my dev environment. So I am first taking this 50 minutes course called 'Building a JavaScript Development Environment by Cory House' https://app.pluralsight.com/library/courses/javascript-development-environment/description
+    Planning to Start Angular lessons very soon. But before I go to angular I need to understand how to setup my dev environment. So I am first taking this 50 minutes course called 'Building a JavaScript Development Environment by Cory House' https://app.pluralsight.com/library/courses/javascript-development-environment/description
     Do CSS positioning course when I don't need an intensive course.
     Doing Javascript: Getting started. I have to finish what I started here since it is useful and finishing what I start is a good habit to form.
         Removing and adding HTML elements.
@@ -178,3 +178,112 @@ ALC 4.0
                 obj.hive="new Value";
                 obj['tuktuk']="killer 1";
                 bracket notation works will with variable eg obj[variable]="23dd";
+
+
+
+
+
+
+
+###4th July 2019
+ALC 4.0:
+    Practical Design Patterns in JavaScript
+        Example available in: avicndugu.github.io/projects/practical-design/task.js
+        Defining object properties: defineProperty
+        Why we would use one
+        Writable prevent accidentally overwrite of an object by setting writable to false.
+        Enumerable prevents this object property appearing in a console.log. i.e. it is not viewable by others.
+        configurable prevents someone else comming in and changing these 2 settings above.
+    NODE.JS:
+        1. What is covered
+            Getting started
+            Modern javascript
+            NPM
+            modules and concurrence
+            Working with web servers
+            Working with operation systems
+        .editor opens a text editor in the NODE REPL.
+        .break will get you out of editor easily.
+
+5th July 2019
+    ALC 4.0:
+        JavaScript Objects and Prototypes    
+            1. Object literals
+                cat={name:"Fluffy", color:"White"};
+            2. Constructor functions
+                function Cat(name, color){
+                    this.name:name;
+                    this.color:color;;
+                }
+                var cat= new Cat('Fluffy', 'White');
+                console.log(cat);
+            3. Using Object.create()
+                var cat=Object.create(Object.prototype,
+                    {
+                        name:{
+                            value:"Fluffy",
+                            enumerable:true,
+                            writable:true,
+                            configurable:true
+                        }
+                        color:{
+                            value:"White",
+                            enumerable:true,
+                            writable:true,
+                            configurable:true
+                        }
+                    })
+            4. Using ES6 classes
+                class Cat {
+                    constructor(name,color){
+                        this.name=name
+                        this.color=color
+                    }
+                    speak(){
+                        console.log("Meooow") // Method
+                    }
+                }
+                var cat= new Cat('Fluffy', 'White');
+                console.log(cat);
+                console.log(cat.speak());
+            Javascript Object Property
+                Accessing objects
+                    Using javascript bracket notation
+                    Using javascript dot notation
+                Javascript property descriptor
+                    cat={name:"Fluffy", color:"White"};
+                    console.log(Object.getOwnPropertyDescriptor(cat,'name'));
+                Changing object properties
+                    Writable:
+                        Object.defineProperty(cat, 'name', {writable:false}) //Set to unwritable
+                        This prevents the object from being rewritten. But if the object contains an object, the value of the object inside can be rewritten.
+                    Enumerable:
+                        looping through an object:
+                            for (var propertyName in cat) {
+                                console.log(propertyName);
+                            }
+                        When enumerable is set to false, that property does not show up in the loop or in the Object.keys(cat), if you JSONstringify, it still does not appear there;
+                        Object.defineProperty(cat, 'name', {enumerable:false}) //Set to viewable
+                        Object.keys(cat); // Name does not appear
+                    Configurable:
+                        Prevents Objects property:enumerable and configurable from being changed when set to false. You cannot delete object property once configurable is set to false.
+                        Object.defineProperty(cat, 'name', {configurable:false}) //Set to viewable
+                    Using getters and setters
+                        Getters:
+                            cat={
+                                name:{first:"Fluffy",last:"Kilsu"}, color:"White"
+                                };
+                            Object.defineProperty(cat, "fullName",
+                            {
+                                get:function() {
+                                    return this.name.first
+                                }
+                                set:function(value) {
+                                    var nameParts=value.split(' ');
+                                    this.name.first=nameParts[0];
+                                    this.name.last=nameParts[1]; 
+                                }
+                            })
+                            console.log(cat.fullName);
+                            cat.fullName="Kuku Mbaya";
+                            console.log(cat.fullName);

@@ -42,3 +42,11 @@ If I find this a bit difficult to digest, I can fall back to:
 Deborah Kurata
 Beginner·5h 41m
 https://app.pluralsight.com/library/courses/angular-2-getting-started-update
+
+
+
+#NODE.JS
+##Node.js: Getting Started
+Samer Buna
+Beginner·3h 29m·Sept 11, 2018
+https://app.pluralsight.com/library/courses/nodejs-getting-started
